@@ -11,3 +11,84 @@
  Text Domain:  top-model-child
  Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 */
+
+/* Header */
+
+.header_mid .header_mid_inner{
+    display: flex;
+}
+
+@media screen and (max-width: 1024px){
+    .header_mid .header_mid_inner{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.register-cta-btn{
+    color: white!important;
+    display: block;
+    font-size:12px;
+    font-weight:400;
+    margin-top: 15px;
+    width: fit-content;
+    padding: 10px 25px;
+    background-color:rgb(25, 25, 25);
+    font-family:Raleway, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+
+.social_wrap{
+    height: 42px;
+}
+
+@media screen and (min-width: 1024px){
+    .header_mid .slogan_wrap,
+    .register-cta-btn{
+        margin-left: auto;
+        margin-right: 40px!important;
+    }
+
+    .social_wrap{
+        margin-right: 40px!important;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .slogan_wrap_text{
+        display: flex!important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social_wrap{
+        margin: 0 10px 10px!important;
+    }
+
+    .resp_mid_nav_wrap,
+    .search_wrap{
+        display: none;
+    }
+}
+
+/* Register Form */
+
+div[data-id="date-born"],
+div[data-id="height"],
+div[data-id="bustt"],
+div[data-id="waist"],
+div[data-id="hips"],
+div[data-id="hair"],
+div[data-id="eyes"],
+div[data-id="shoes"]{
+    padding: 0 0 22px;
+}
+
+/* Carousel */
+
+.erinyen.tparrows.tp-leftarrow:before {
+    content: "\e824";
+}
+
+.erinyen.tparrows.tp-rightarrow:before {
+    content: "\e825";
+}
