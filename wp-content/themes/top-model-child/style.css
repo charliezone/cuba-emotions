@@ -42,6 +42,10 @@
 }
 
 @media screen and (min-width: 1024px){
+    .header_bot .bot_nav_wrap{
+        float: right;
+    }
+
     .header_mid .slogan_wrap,
     .register-cta-btn{
         margin-left: auto;
@@ -91,4 +95,11 @@ div[data-id="shoes"]{
 
 .erinyen.tparrows.tp-rightarrow:before {
     content: "\e825";
+}
+
+/* Profile */
+
+.pl-categs-influencers .profile_details.entry-meta,
+.pl-categs-artists .profile_details.entry-meta{
+    display: none;
 }
