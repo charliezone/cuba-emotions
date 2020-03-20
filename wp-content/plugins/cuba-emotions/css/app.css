@@ -65,14 +65,14 @@
 }
 
 .tparrows:before{
-    font-family: "revicons";
-    font-size: 20px;
-    color: rgb(255,255,255);
+    z-index: 2;
     display: block;
+    font-size: 20px;
     line-height: 70px;
     text-align: center;
-    z-index: 2;
     position: relative;
+    font-family: "revicons";
+    color: rgb(255,255,255);
 }
 
 .ce-carousel .next-arrow:before{
@@ -81,4 +81,19 @@
 
 .ce-carousel .prev-arrow:before{
     content: "\e824";
+}
+
+/* Profile Categories */
+.ce-cpt-profile-container{
+    padding-bottom: 80px;
+}
+
+.cmsmasters_profile .cmsmasters_img_rollover_wrap img{
+    height: auto;
+}
+
+.ce-cpt-profile-container .ce-pagination{
+    bottom: 0;
+    position: absolute;
+    left: calc(50% - 66px);
 }
