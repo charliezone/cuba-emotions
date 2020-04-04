@@ -12,6 +12,13 @@
  Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 */
 
+/* Menu */
+ul.navigation > li.menu-item.current-menu-item > a,
+ul.navigation > li.current-menu-ancestor > a{
+    font-size: 16px;
+    font-weight: 700;
+}
+
 /* Header */
 
 .header_mid .header_mid_inner{
@@ -102,4 +109,130 @@ div[data-id="shoes"]{
 .pl-categs-influencers .profile_details.entry-meta,
 .pl-categs-artists .profile_details.entry-meta{
     display: none;
+}
+
+.profiles{
+    position: relative;
+}
+
+@media screen and (min-width: 998px){
+    .ce-cpt-profile{
+        height: 330px;
+    }
+}
+
+
+.profiles .register-cta-btn{
+    top: 215px;
+    right: 24px;
+    font-size: 2rem;
+    position: fixed;
+    font-style: italic;
+    margin: 15px 25px!important;
+}
+
+@media screen and (max-width: 998px){
+    .profiles .register-cta-btn{
+        top: 30px;
+        right: calc(50% - 107.5px);
+        font-size: 1.2rem;
+        position: fixed;
+    }
+}
+
+.cmsmasters_open_profile .cmsmasters_profile_header .cmsmasters_profile_title{
+    text-align: left;
+}
+
+/* Page Fashion Tours and Shop*/
+
+.page-id-213 .fashion-tours-hero,
+.single-fashion_tour .fashion-tours-hero{
+    height: 350px;
+}
+
+.page-id-213 .sell-item,
+.page-id-307 .sell-item,
+.single-fashion_tour .sell-item{
+    border: 1px solid #191919;
+    padding-bottom: 15px;
+}
+
+.page-id-307 .sell-item{
+    height: 450px;
+}
+
+@media screen and (min-width: 998px){
+    .single-product .profiles .register-cta-btn{
+        top: 485px
+    }
+}
+
+.page-id-213 .sell-item .img-wraper,
+.page-id-307 .sell-item .img-wraper{
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+.page-id-307 .sell-item .img-wraper{
+    max-height: 330px;
+}
+
+.page-id-213 .sell-item .content_inner,
+.page-id-307 .sell-item .content_inner,
+.single-fashion_tour .sell-item .content_inner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page-id-213 .sell-item .content_inner h1,
+.page-id-307 .sell-item .content_inner h1,
+.single-fashion_tour .sell-item .content_inner h1{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.page-id-213 .sell-item .content_inner .header,
+.page-id-307 .sell-item .content_inner .header,
+.single-fashion_tour .sell-item .content_inner .header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.page-id-213 .sell-item .content_inner a,
+.page-id-307 .sell-item .content_inner a,
+.single-fashion_tour .sell-item .content_inner a{
+    margin: 15px auto 0!important;
+}
+
+/*Fashion Tour*/
+.single-fashion_tour .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single-fashion_tour .title{
+    margin-bottom: 0;
+}
+
+.request-cta{
+    display: flex;
+    justify-content: center;
+}
+
+.single-fashion_tour .request-cta .register-cta-btn{
+    font-size: 2rem;
+    margin: 25px!important;
+    font-style: italic;
+}
+
+.pbWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

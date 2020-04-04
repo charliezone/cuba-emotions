@@ -158,15 +158,18 @@ function ce_cpt_list( $atts, $content = null ) {
   $args = array( 
      'post_type' => $a['post_type'],
      'posts_per_page' => $a['posts_per_page'],
-     'tax_query' => array(
-        array(
-            'taxonomy' => 'pl-categs',
-            'field'    => 'slug',
-            'terms'    => $a['category_name'],
-        ),
-      ),
-      'paged' => $paged
+     'paged' => $paged
   );
+
+  if($a['category_name']){
+    $args['tax_query'] = array(
+      array(
+          'taxonomy' => 'pl-categs',
+          'field'    => 'slug',
+          'terms'    => $a['category_name'],
+      ),
+    );
+  }
 
   if (get_query_var('paged')) { 
 		$paged = get_query_var('paged'); 
@@ -238,3 +241,80 @@ function ce_cpt_list( $atts, $content = null ) {
 }
 
 add_shortcode( 'ce_cpt_list', 'ce_cpt_list' );
+
+function ce_fashion_shop_list( $atts, $content = null ) {
+  wp_enqueue_style( 'ce-app-style' );
+
+  $a = shortcode_atts( array(
+     'post_type' => 'fashion_tour',
+     'posts_per_page' => '6',
+  ), $atts );
+  
+  ob_start();
+  
+  $args = array( 
+     'post_type' => $a['post_type'],
+     'posts_per_page' => $a['posts_per_page'],
+     'paged' => $paged
+  );
+
+  if (get_query_var('paged')) { 
+		$paged = get_query_var('paged'); 
+	} elseif (get_query_var('page')) { 
+		$paged = get_query_var('page'); 
+	} else { 
+		$paged = 1; 
+	}
+	
+	
+	$args['paged'] = $paged;
+     
+  $posts_query = new WP_Query;
+  $posts_query->query( $args );
+  if ($posts_query->have_posts()) {
+     ?>
+      <div class="ce-cpt-profile-container cmsmasters_profile horizontal">
+        <?php
+          while($posts_query->have_posts()){
+            $posts_query->the_post();?>
+            <article class="sell-item ce-cpt-profile cmsmasters_profile_horizontal one_third profile type-profile <?php if (has_post_thumbnail()): ?>has-post-thumbnail <?php endif ?> hentry">
+              <?php if (has_post_thumbnail()): ?>
+                <div class="img-wraper">
+                  <img src="<?php the_post_thumbnail_url('medium') ?>" class="full-width wp-post-image" alt="<?php the_title() ?>" title="<?php the_title() ?>" srcset="<?php the_post_thumbnail_url('medium') ?> 300w, <?php the_post_thumbnail_url('thumbnail') ?> 150w, <?php the_post_thumbnail_url('thumbnail') ?> 70w" sizes="(max-width: 300px) 100vw, 300px">
+                </div>
+              <?php endif ?>  
+                <div class="content_inner">
+                  <div class="header">
+                    <h1 class="cmsmasters_heading"><?php the_title() ?></h1>
+                    <span>from <strong><?php the_field('price') ?></strong> $</span>
+                  </div>
+                  <a href="<?php the_permalink() ?>" class="register-cta-btn">Got it</a>
+                </div>
+            </article>
+
+        <?php } ?>
+        <div class="ce-pagination">
+
+          <?php
+            echo cmsmasters_pagination($posts_query->max_num_pages)
+          ?>
+
+        </div>
+
+        <?php
+          wp_reset_postdata();
+        ?>
+          </div>
+        <?php
+     /* Get the buffered content into a var */
+     $news = ob_get_contents();
+
+     /* Clean buffer */
+     ob_end_clean();
+     return $news;
+  }else{
+     return 'No posts found';
+  }
+}
+
+add_shortcode( 'ce_fashion_shop_list', 'ce_fashion_shop_list' );

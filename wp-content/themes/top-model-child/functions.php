@@ -11,6 +11,9 @@
 
 
 function top_model_child_enqueue_styles() {
+    if( is_page('request-form') ){
+        wp_enqueue_script('top-model-child-js', get_stylesheet_directory_uri().'/js/app.js', null, '1.0.0');
+    }
     wp_enqueue_style('top-model-child-style', get_stylesheet_uri(), array('top-model-style'), '1.0.0', 'screen, print');
 }
 
@@ -39,4 +42,10 @@ function modify_slider_order($query, $slider_id) {
 }
  
 add_filter('revslider_get_posts', 'modify_slider_order', 10, 2);
+
+function pippin_get_image_id($image_url) {
+    global $wpdb;
+    $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url )); 
+        return $attachment[0]; 
+}
 ?>
